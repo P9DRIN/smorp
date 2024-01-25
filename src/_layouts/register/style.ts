@@ -3,23 +3,28 @@ import styled from 'styled-components'
 
 export const Container = styled.div`
 
-    width: 100vw;
-    height: 100vh;
+
     display: flex;
+    flex-direction: column;
+    gap: 1rem;
     align-items: center;
     justify-content: center;
+    height: 100vh;
+
 
 `
 
 export const Form = styled.form`
 
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+   
+        display: flex;
+        align-items: center; 
+        justify-content: center;
+        flex-direction: column;
+        gap: 1rem;
     
-    width: 25rem;
-    gap: 1rem;
+
+   
 
     & .back{
         margin-top: -0.2rem;
@@ -39,12 +44,26 @@ export const RegisterTag = styled.span`
 `
 
 const defaultInput = styled.input`
-    height: 2rem;
-    width: 22rem;
-    padding: 5px;
+   
     background: none;
     border: 1px solid ${props => props.theme['white']};
     color: ${props => props.theme['white']};
+
+    @media (max-width: 425px){
+        width: 80vw;
+        height: 4vh;
+        padding: 1rem;
+    }
+    @media (min-width: 768px){
+        width: 60vw;
+        height: 4vh;
+        padding: 1rem;
+    }
+    @media (min-width: 1024px){
+        width: 40vw;
+        height: 5vh;
+        padding: 1rem;
+    }
 `
 
 
@@ -69,17 +88,16 @@ export const InputFU = styled(defaultInput)`
 export const InputName = styled(defaultInput)``
 
 export const SubmitButton = styled.button`
-    height: 3rem;
-    width: 22rem;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  
     color: white;
     background: ${props => props.theme['blue']};
     border: none;
     transition: 0.2s ease-in-out;
     margin-top: 2rem;
+
+   width: 100%;
+
+
 
     &:hover{
         opacity: 80%;

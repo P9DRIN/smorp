@@ -4,6 +4,7 @@ import { Auth } from "./_layouts/auth/auth";
 import { Home } from "./pages/home";
 import { Register } from "./_layouts/register/register";
 import { CartPage } from "./_layouts/cart";
+import { Success } from "./_layouts/success";
 
 
 export const router = createBrowserRouter([
@@ -25,5 +26,9 @@ export const router = createBrowserRouter([
     {
         path: '/cart',
         element: <CartPage/>
+    },
+    {
+        path: '/success',
+        element: <Success/>
     }
 ])

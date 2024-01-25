@@ -2,36 +2,40 @@ import styled from 'styled-components'
 
 
 export const Container = styled.div`
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-    flex-direction: column;
-    overflow-x: hidden;
-
+   
+   @media(max-width: 425px){
+        display: flex;
+        flex-direction: column;
+        
+   }
+   @media(min-width:768px){
+        display: flex;
+        flex-direction: column;
+    
+}
 `
 
 export const Header = styled.header`
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    padding: 2rem 5rem;
+    background: #111e29;
     
-
+    @media(max-width: 425px){
+        display: flex;
+        padding: 1rem;
+        justify-content: space-between;
+        align-items: center;  
+   }
+   @media(min-width:768px){
+        display: flex;
+        padding: 2rem;
+        justify-content: space-between; 
+        align-items: center;
+    }
     & .link{
         color: ${props => props.theme['white']};
     }
 `
 export const Main = styled.main`
-    height: 80vh;
-    width: 80vw;
-    padding: 2.5rem 3rem;
-    overflow-y: auto;
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-
+   
     --sb-track-color: #051923;
     --sb-thumb-color: #0582ca;
     --sb-size: 10px;
@@ -54,40 +58,65 @@ export const Main = styled.main`
     border-radius: 8px;
 }
 
+@media(max-width: 425px){
+        display: flex;
+        flex-direction: column;
+        overflow-y: auto;
+        max-height: 80vh;
+        min-height: 5rem;
+   }
+   @media(min-width:768px){
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        overflow-y: auto;
+        max-height: 76vh;
+    
+}
 `
 
 export const PriceWrapper = styled.main`
-    display: flex;
-    margin: 1rem 0;
-    height: 5rem;
+
+
     background: ${props => props.theme['rich-black']};
-
-    align-items: center;
-    justify-content: flex-end;
-    gap: 1rem;
-
-    padding: 1rem 7rem;
-    
+    padding: 1rem 8rem;
     border-radius: 6px;
-    
+
+    & div{
+        color: ${props => props.theme['white-soft']};
+    }
+    & span{
+        color: ${props => props.theme['white']};
+    }
+
+    @media(max-width: 425px){
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+        justify-content: center;
+
+    }
+    @media(min-width:768px){
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+        justify-content: flex-end;
+}   
 `
 export const Logo = styled.div`
-    font-weight: 600;
-    font-size: 2rem;
+    
     display: flex;
     align-items: center;
-    justify-content: center;
+    color: ${props => props.theme['blue']};
+    
+    @media(min-width:768px){
+    font-size: 2rem;
+}
 
 `
 
-
 export const BuyButton = styled.button`
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 10rem;
-    height: 2rem;
-
+  
     color: ${props => props.theme['white']};
     background: ${props => props.theme['blue-200']};
     border: none;
@@ -98,4 +127,37 @@ export const BuyButton = styled.button`
     &:hover{
         opacity: 0.8;
     }
+
+    @media(max-width: 425px){
+        width: 5rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    @media(min-width:768px){
+    width: 13rem;
+}
+`
+
+export const NoCartItems = styled.span`
+  
+    border: 1px dashed ${props => props.theme['white-soft']};
+    color: ${props => props.theme['white-soft']};
+
+    @media(max-width: 425px){
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 1rem;
+        margin-top: 0.5rem;
+    }
+    @media(min-width:768px){
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 1rem;
+        margin: 1rem 0;
+        
+    
+}  
 `

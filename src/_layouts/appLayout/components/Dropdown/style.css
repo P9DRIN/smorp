@@ -4,13 +4,12 @@
     border: 1px solid #1d5f80;
     border-radius: 6px;
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
     position: absolute; 
-    left: -1rem;
-
-    width: 6rem;
+    left: -4rem;
+    top: 0.5rem;
+    width: 5rem;
     height: 3rem;
     animation-duration: 600ms;
     animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
@@ -25,7 +24,6 @@
     display: flex;
     align-items: center;
     color: #FCFFE7;
-    padding: 6px 10px;
     transition: 0.25s ease-in-out;
 }
 .dropdownItem:hover{
@@ -40,7 +38,7 @@
 @keyframes slideDownAndFade {
     from {
       opacity: 0;
-      transform: translateY(-2px);
+      transform: translateY(-10px);
     }
     to {
       opacity: 1;

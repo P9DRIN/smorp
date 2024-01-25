@@ -1,11 +1,6 @@
 import styled from "styled-components";
 
 export const Wrapper = styled.div`
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 4rem;
-    width: 4rem;
 
     & svg{
         color: ${props => props.theme['white']};
@@ -19,10 +14,7 @@ export const Wrapper = styled.div`
 export const Quantity = styled.span`
     border-radius: 100%;
     background: ${props => props.theme['blue']};
-    font-size: 20px;
-    display: flex;
-    padding: 0.01rem 0.30rem;
-    margin-left: -0.5rem;
+    padding: 0.15rem 0.3rem;
 
     color: ${props => props.theme['white']};
 

@@ -2,43 +2,83 @@ import styled from 'styled-components'
 
 
 export const Header = styled.header`
-    height: 7rem;
-    padding: 4rem 5rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    
     background: #111e29;
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
+   
+    @media(max-width: 425px){
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 2rem;
+        flex-wrap: wrap;
+        gap: 2rem;
+    }
+    @media(min-width: 768px){
+        display: flex;
+        justify-content: space-between;
+        align-items: center; 
+        padding: 2rem;
+    }
+
+    
 `
 export const LogoWrapper = styled.div`
+ 
     display: flex;
     align-items: center;
-  
-    width: 8rem;
+    font-size: 2rem;
+   
     
     color: ${props => props.theme['blue']};
-    font-weight: 600;
-    font-size: 2rem;
+    
 
     & svg{
         color: ${props => props.theme['blue']};
-
     }
+
+    
 `
 
 
 export const ContentContainer = styled.div`
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 5rem;
+    
+   @media(max-width: 425px){
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+        flex-wrap: wrap;
+       
+   }
+   @media(min-width: 768px){
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+      
+        
+    }
+
 
 `
 
 export const DropDownWrapper = styled.div`
-    display: flex;
-    align-items: center;
     text-decoration: none;
+
+    @media(max-width: 425px){
+        flex-wrap: wrap;
+        display: flex;
+        gap: 3rem;
+        align-items: center;
+        justify-content: center;
+    }
+
+    @media(min-width: 768px){
+        display: flex;
+        align-items: center;
+        gap: 3rem;
+        
+        
+    }
+
 
 `

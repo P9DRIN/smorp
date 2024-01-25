@@ -10,10 +10,12 @@ export const defaultTheme = {
     "white-soft": '#868686',
 
     black: '#0D1821',
-    "rich-black": "#051923",
+    "rich-black": "#030712",
 
     "soft-pink": "#81717a",
     "soft-gray": "#9993b2",
+
+    red: '#e84855',
 
     green: '#648767',
     "green-200": "#7dc95e",

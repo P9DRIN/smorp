@@ -3,32 +3,57 @@ import styled from 'styled-components'
 
 export const Wrapper = styled.div`
     border: 1px solid ${props => props.theme['white-soft']};
-    border-radius: 6px;
-    height: 15rem;
+    
+    @media (max-width: 425px){
+        display: flex;
+        justify-content: space-between;
+    }
+    @media(min-width:768px){
+        display: flex;
+        justify-content: space-between;
+       
+        width: 90%;
+    }
 
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
 `
 
 export const Image = styled.img`
-    
-    height: 10rem;
-    width: 9rem;
-    margin-left: 5rem;
+
+    @media(max-width: 425px){
+        width: 5rem;
+    }
+    @media(min-width:768px){
+        width: 8rem;
+        height: 8rem;
+    }
     
 `
 export const PriceWrapper = styled.div`
-    margin-right: 5rem;
-    height: 10rem;
-    width: 9rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    
+    @media (max-width: 425px){
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+    }
+    @media(min-width:768px){
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+    }
 
 `
 export const Price = styled.span`
-    font-size: 20px;
+  
+`
 
+export const RemoveButton = styled.button`
+    
+    background: none;
+    border: none;
+    margin-right: 1rem;
+    cursor: pointer;
+    
+
+    color: ${props => props.theme['red']};
+    
 `

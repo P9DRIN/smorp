@@ -8,7 +8,7 @@ export function DropDown(){
     return(
         <DropdownMenu.Root>
             <DropdownMenu.Trigger asChild>
-                <Button><HamburgerMenuIcon width={32} height={32}/></Button>
+                <Button className='classe'><HamburgerMenuIcon width={32} height={32}/></Button>
             </DropdownMenu.Trigger>
         <DropdownMenu.Portal>
             <DropdownMenu.Content className="dropdownContent">

@@ -3,34 +3,68 @@ import styled from 'styled-components'
 
 export const CounterBG = styled.div`
 background: ${props => props.theme['rich-black']};
-    height: 100vh;
-    width: 20vw;
+
+@media(max-width:425px){
+    display: none;
+}
+
+@media(min-width:768px){
+    width: 15rem;
+    height: 100%;
+}
 `
 
 export const Container = styled.div`
-    height: 100vh;
-    display: flex;
-`
 
-export const FormContainer = styled.form`
+
+@media (max-width: 425px){
+
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+   
+
+}
+
+@media(min-width:768px){
     display: flex;
     align-items: center;
     justify-content: center;
+    height: 100vh;
+}
+`
+
+export const FormContainer = styled.form`
+background: ${props => props.theme['black']};
+
+ @media (max-width: 425px){
+
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+height: 100%;
+
+
+}
+@media(min-width:768px){
+    display: flex;
     flex-direction: column;
-    
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 90%;
+}
 
     & h1{
         display: flex;
         align-items: center;
-
         & svg{
             color: ${props => props.theme['blue']}
         }
     }
 
     & span{
-        margin-top: -1.5rem;
-        font-size: 1rem;
         
     }
     & .link{
@@ -40,42 +74,77 @@ export const FormContainer = styled.form`
     
 `
 export const Wrapper = styled.div`
+    
+    @media (max-width: 425px){
+
     display: flex;
-    gap: 1rem;
     flex-direction: column;
-    width: 21rem;
-    padding: 2rem;
+    gap: 1rem;
 
-`
+    width: 100%;
+    padding: 1rem;
 
-export const InputEmail = styled.input`
-   height: 2rem;
-   background: none;
-   border: 1px solid ${props => props.theme['white']};
-   color: ${props => props.theme['white']};
-   padding: 5px;
-`
-
-export const InputPassword = styled.input`
-    height: 2rem;
-    background: none;
-    border: 1px solid ${props => props.theme['white']};
-    color: ${props => props.theme['white']};
-    padding: 5px;
-`
-
-export const ButtonSubmit = styled.button`
+}
+@media(min-width:768px){    
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    padding: 1rem;
+    gap: 1rem;
+    
+}
+`
+export const InputEmail = styled.input`
+
+   background: none;
+   border: 1px solid ${props => props.theme['white']};
+   color: ${props => props.theme['white']};
+   padding: 5%;
+
+   @media(min-width:768px){
+    padding: 2%;
+    width: 45%;
+
+}
+
+`
+
+export const InputPassword = styled.input`
+
+    background: none;
+    border: 1px solid ${props => props.theme['white']};
+    color: ${props => props.theme['white']};
+    padding: 5%;
+
+    @media(min-width:768px){
+    padding: 2%;
+    width: 45%;
+
+}
+
+`
+
+export const ButtonSubmit = styled.button`
+ 
     height: 2.5rem;
     color: ${props => props.theme['rich-black']}; 
     background: ${props => props.theme['blue']};
     border: none;
     transition: 0.15s ease-in-out;
     cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
     &:hover{
         opacity: 60%;
     }
+
+    @media(min-width:768px){
+        width: 15rem;
+    
+}
+
 `
