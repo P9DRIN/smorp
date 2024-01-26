@@ -9,6 +9,8 @@ import { DropDown } from "./components/Dropdown/Dropdown";
 export function AppLayout(){
     return(
         <>
+
+
         <Header>
         <LogoWrapper>
         <span>S</span>
@@ -24,9 +26,11 @@ export function AppLayout(){
         </DropDownWrapper>
 
         </Header>
+        
         <ContentContainer>
         <Outlet/>
         </ContentContainer>
+
 
         </>
     )

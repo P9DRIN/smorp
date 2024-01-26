@@ -54,6 +54,11 @@ const defaultInput = styled.input`
         height: 4vh;
         padding: 1rem;
     }
+    @media(min-width:426px) and (max-width: 767px){
+        width: 55vw;
+        height: 4vh;
+        padding: 1rem;
+    }
     @media (min-width: 768px){
         width: 60vw;
         height: 4vh;

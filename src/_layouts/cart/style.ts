@@ -8,6 +8,10 @@ export const Container = styled.div`
         flex-direction: column;
         
    }
+   @media(min-width:426px) and (max-width: 767px){
+    display: flex;
+    flex-direction: column;
+}
    @media(min-width:768px){
         display: flex;
         flex-direction: column;
@@ -24,6 +28,13 @@ export const Header = styled.header`
         justify-content: space-between;
         align-items: center;  
    }
+   @media(min-width:426px) and (max-width: 767px){
+        display: flex;
+        padding: 2rem;
+        justify-content: space-between;
+        align-items: center;
+        width: 100vw;
+}
    @media(min-width:768px){
         display: flex;
         padding: 2rem;
@@ -73,6 +84,14 @@ export const Main = styled.main`
         max-height: 76vh;
     
 }
+@media(min-width:426px) and (max-width: 767px){
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        overflow-y: auto;
+        max-height: 74vh;
+        width: 95vw;
+}
 `
 
 export const PriceWrapper = styled.main`
@@ -96,6 +115,12 @@ export const PriceWrapper = styled.main`
         justify-content: center;
 
     }
+    @media(min-width:426px) and (max-width: 767px){
+        display: flex;
+        gap: 2rem;
+        align-items: center;
+        justify-content: flex-end;
+}
     @media(min-width:768px){
         display: flex;
         gap: 1rem;
@@ -109,6 +134,10 @@ export const Logo = styled.div`
     align-items: center;
     color: ${props => props.theme['blue']};
     
+    @media(min-width:426px) and (max-width: 767px){
+        font-size: 1.5rem;
+}
+
     @media(min-width:768px){
     font-size: 2rem;
 }
@@ -134,6 +163,9 @@ export const BuyButton = styled.button`
         align-items: center;
         justify-content: center;
     }
+    @media(min-width:426px) and (max-width: 767px){
+        width: 10rem;
+}
     @media(min-width:768px){
     width: 13rem;
 }
@@ -150,6 +182,13 @@ export const NoCartItems = styled.span`
         justify-content: center;
         padding: 1rem;
         margin-top: 0.5rem;
+    }
+    @media(min-width: 426px) and (max-width: 767px){
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 1rem;
+        margin: 1rem 0;
     }
     @media(min-width:768px){
         display: flex;

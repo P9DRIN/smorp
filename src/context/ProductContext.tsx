@@ -25,7 +25,7 @@ export function ProductProvider({ children }: ProductProviderProps) {
         .then((response) => response.json())
         .then((data) => setProduct(data.results))
         
-    }, [product])
+    }, [])
   
 
     return (

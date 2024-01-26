@@ -4,7 +4,7 @@ import styled from "styled-components";
 export const Container = styled.div`
     border-radius: 8px;
     background: #142430;
-  
+
     @media(max-width: 425px){
         display: flex;
         flex-direction: column;
@@ -12,6 +12,19 @@ export const Container = styled.div`
         justify-content: center;
         height: 15rem;
         width: 15rem;
+        margin: 1rem;
+
+        & img{
+            width: 10rem;
+        }
+    }
+    @media(min-width:426px) and (max-width: 767px){
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 15rem;
+        width: 13rem;
         margin: 1rem;
 
         & img{
@@ -47,6 +60,9 @@ export const Price = styled.h3`
     @media(max-width: 425px){
         margin-top: 0.5rem;
     }
+    @media(min-width:426px) and (max-width: 767px){
+        margin-top: .5rem;
+    }
     @media(min-width: 768px){
         margin-top: 0.5rem;
     }
@@ -72,6 +88,10 @@ export const BuyButton = styled.button`
     @media(max-width: 425px){
         margin-top: 0.5rem;
         width: 80%;
+    }
+    @media(min-width:426px) and (max-width: 767px){
+        margin-top: .5rem;
+        width: 85%;
     }
     @media(min-width: 768px){
         margin-top: 0.5rem;

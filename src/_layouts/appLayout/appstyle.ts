@@ -14,6 +14,15 @@ export const Header = styled.header`
         flex-wrap: wrap;
         gap: 2rem;
     }
+    @media(min-width:426px) and (max-width: 767px){
+        
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 2rem;
+        
+    }
+
     @media(min-width: 768px){
         display: flex;
         justify-content: space-between;
@@ -42,7 +51,30 @@ export const LogoWrapper = styled.div`
 
 
 export const ContentContainer = styled.div`
+
+--sb-track-color: #051923;
+    --sb-thumb-color: #0582ca;
+    --sb-size: 10px;
+
+    scrollbar-color:
+    var(--sb-thumb-color) 
+    var(--sb-track-color);
     
+
+    &::-webkit-scrollbar{
+        width: 8px;
+
+    }
+    &::-webkit-scrollbar-track{
+        background: #232E33;
+        border-radius: 8px;
+    }
+    &::-webkit-scrollbar-thumb {
+    background: var(--sb-thumb-color);
+    border-radius: 8px;
+}
+     
+
    @media(max-width: 425px){
         display: flex;
         gap: 1rem;
@@ -50,12 +82,19 @@ export const ContentContainer = styled.div`
         flex-wrap: wrap;
        
    }
+   @media(min-width:426px) and (max-width: 767px){
+        display: flex;
+        justify-content: space-evenly;
+        flex-wrap: wrap;
+        height: 80vh;
+        overflow: auto;
+        
+   }
    @media(min-width: 768px){
         display: flex;
         justify-content: space-evenly;
-        align-items: center;
-      
-        
+        height: 85vh;
+        overflow: auto;
     }
 
 
@@ -71,13 +110,15 @@ export const DropDownWrapper = styled.div`
         align-items: center;
         justify-content: center;
     }
-
+    @media(min-width:426px) and (max-width: 767px){
+        display: flex;
+        gap: 2rem;
+    }
     @media(min-width: 768px){
         display: flex;
         align-items: center;
         gap: 3rem;
-        
-        
+    
     }
 
 
