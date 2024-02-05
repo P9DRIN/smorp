@@ -7,19 +7,31 @@ import { DataItems } from '../@types/product'
 
 export function Card({ data }: DataItems) {
 
-    const { setCartItems, cartItems } = useContext(ProductContext)
+    const { cartItems } = useContext(ProductContext)
 
-    const { id, price, thumbnail } = data
+    const { _id, productName, productImage, productPrice, productLDescription, productSDescription } = data
 
     const handleAddToCart = () => {
-        setCartItems([...cartItems, data])
+        const hasLocalStorage = localStorage.getItem('items')
+
+        if(hasLocalStorage){
+            cartItems.push(data)
+            const fullyData = JSON.parse(hasLocalStorage)
+            fullyData.push(data)
+            localStorage.setItem('items', JSON.stringify(fullyData))
+
+        }else{
+            cartItems.push(data)
+            localStorage.setItem('items', JSON.stringify(cartItems))
+        }
+
     }
 
     return(
         <>
-            <Container key={id}>
-                <img alt='' src={thumbnail.replace(/\w\.jpg/gi, 'W.jpg')}/>
-                <Price>{priceFormatter.format(price)}</Price>
+            <Container key={_id}>
+                <img alt='' src={productImage}/>
+                <Price>{priceFormatter.format(productPrice)}</Price>
                 <BuyButton onClick={handleAddToCart}><ShoppingBagOpen size={24} /></BuyButton>
             </Container>
         </>
