@@ -87,6 +87,9 @@ export const InputHouseNumber = styled(defaultInput)`
 export const InputZipCode = styled(defaultInput)`
 
 `
+export const InputCity = styled(defaultInput)`
+
+`
 export const InputFU = styled(defaultInput)`
 
 `
