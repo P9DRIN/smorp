@@ -5,6 +5,9 @@ import { Home } from "./pages/home";
 import { Register } from "./_layouts/register/register";
 import { CartPage } from "./_layouts/cart";
 import { Success } from "./_layouts/success";
+import { PaymentPage } from "./_layouts/payment";
+import { ProfilePage } from "./_layouts/profile";
+import { OrdersPage } from "./_layouts/Orders";
 
 
 export const router = createBrowserRouter([
@@ -28,7 +31,19 @@ export const router = createBrowserRouter([
         element: <CartPage/>
     },
     {
+        path: '/payment',
+        element: <PaymentPage/>
+    },
+    {
+        path: '/profile',
+        element: <ProfilePage/>
+    },
+    {
+        path: '/orders',
+        element: <OrdersPage/>
+    },
+    {
         path: '/success',
         element: <Success/>
-    }
+    },
 ])
