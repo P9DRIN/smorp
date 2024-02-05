@@ -21,6 +21,6 @@ export const defaultTheme = {
     "green-200": "#7dc95e",
     "green-300": "#7cdf64",
 
-    gray: "#cee7e6",
+    gray: "#9ba3a3",
 
   } as const
