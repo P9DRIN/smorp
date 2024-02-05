@@ -9,7 +9,7 @@ export function useSum(){
     const sum = cartItems.reduce(
         (acc, product) => {
 
-            acc.totalValue += product.price
+            acc.totalValue += product.productPrice
 
             return acc
         },
