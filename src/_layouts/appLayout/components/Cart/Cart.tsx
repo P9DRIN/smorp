@@ -7,7 +7,7 @@ import { ProductContext } from "../../../../context/ProductContext";
 export function Cart(){
 
     const { cartItems } = useContext(ProductContext)
-
+    
     return(
         <>
         <Wrapper>

@@ -6,14 +6,18 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
+    
     position: absolute; 
-    left: -4rem;
+    left: -6rem;
     top: 0.5rem;
-    width: 5rem;
-    height: 3rem;
+    width: 7rem;
+    height: 5rem;
     animation-duration: 600ms;
     animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
     will-change: transform, opacity;
+
+    text-decoration: none;
 }
 
 .dropdownContent[data-side='bottom']{
@@ -25,13 +29,19 @@
     align-items: center;
     color: #FCFFE7;
     transition: 0.25s ease-in-out;
+    gap: .5rem;
+    width: 7rem;
+    cursor: pointer;
+    text-decoration: none;
 }
 .dropdownItem:hover{
     background: #0582ca;
 
 }
 .svg{
-    font-size: 24px
+    font-size: 24px;
+    margin-left: 5px;
+    
 }
 
 

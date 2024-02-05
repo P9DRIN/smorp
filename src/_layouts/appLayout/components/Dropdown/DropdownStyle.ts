@@ -10,6 +10,7 @@ export const Button = styled.button`
     justify-content: center;
     cursor: pointer;
     transition: 0.25s ease-in-out;
+    
 
 
     color: ${props => props.theme['blue-100']};
