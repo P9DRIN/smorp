@@ -29,11 +29,11 @@ export const Image = styled.img`
         width: 5rem;
     }
     @media(min-width:426px) and (max-width: 767px){
-        width: 6rem;
+        width: 8rem;
 }
     @media(min-width:768px){
-        width: 8rem;
-        height: 8rem;
+        width: 12rem;
+       
     }
     
 `
@@ -74,4 +74,32 @@ export const RemoveButton = styled.button`
         opacity: 80%;
     }
     
+`
+
+
+
+export const Container = styled.div`
+        height: 60rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        & svg{
+            color: ${props => props.theme['blue']};
+            font-size: 14rem;
+            animation: filler linear 2s infinite;
+            animation-fill-mode: forwards;
+        }
+
+        @keyframes filler {
+            from {
+                color: ${props => props.theme['blue-300']};
+     
+            }
+            to {
+                color: ${props => props.theme['blue']};
+               
+                
+            }
+        }
 `

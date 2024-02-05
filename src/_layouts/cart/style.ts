@@ -107,6 +107,7 @@ export const PriceWrapper = styled.main`
     & span{
         color: ${props => props.theme['white']};
     }
+    
 
     @media(max-width: 425px){
         display: flex;
@@ -157,8 +158,17 @@ export const BuyButton = styled.button`
         opacity: 0.8;
     }
 
+    &:disabled{
+        cursor: not-allowed;
+        opacity: 0.4;
+    }
+
+    @media(min-width: 320px){
+        min-width: 8rem;
+    }
+
     @media(max-width: 425px){
-        width: 5rem;
+        width: 15rem;
         display: flex;
         align-items: center;
         justify-content: center;
