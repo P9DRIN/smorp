@@ -29,8 +29,9 @@
     align-items: center;
     color: #FCFFE7;
     transition: 0.25s ease-in-out;
-    gap: .5rem;
+    gap: .6rem;
     width: 7rem;
+    
     cursor: pointer;
     text-decoration: none;
 }
