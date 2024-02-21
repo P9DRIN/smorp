@@ -9,7 +9,7 @@ import { ProductContext } from '../../../context/ProductContext'
 
 export function ItemCard({data}: DataItems){
 
-    const { _id, productName, productImage, productPrice, productLDescription, productSDescription } = data
+    const { _id, productImage, productPrice,  } = data
 
     const { cartItems, fetchProducts } = useContext(ProductContext);
 
