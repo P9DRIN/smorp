@@ -12,7 +12,7 @@ export function Cart(){
         <>
         <Wrapper>
         <ShoppingCart size={32}/>
-        <Quantity>{cartItems.length}</Quantity>
+        <Quantity>{cartItems?.length}</Quantity>
         </Wrapper>
         
         </>
