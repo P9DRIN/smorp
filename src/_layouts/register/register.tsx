@@ -1,9 +1,11 @@
 import { PaperPlaneTilt } from "phosphor-react";
 import { Container, Form, InputEmail, InputPassword, InputName, InputStreet, InputCity, InputHouseNumber, InputZipCode, InputFU, SubmitButton, RegisterTag } from "./style";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import * as z from 'zod'
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useContext } from "react";
+import { AuthContext } from "../../context/AuthContext";
 
 const newAccountFormSchema = z.object({
     email: z.string().email(),
@@ -20,19 +22,37 @@ type newAccountFormInput = z.infer<typeof newAccountFormSchema>
 
 export function Register(){
 
+    const navigate = useNavigate()
+    const { registerAccount } = useContext(AuthContext)
+
     const {
         register,
         handleSubmit,
-        formState: { isSubmitting, errors },
+        formState: { isSubmitting, errors},
         reset,
     } = useForm<newAccountFormInput>({
         resolver: zodResolver(newAccountFormSchema)
     })
 
-    function handleRegister(data: newAccountFormInput){
-        console.log(data.fullName)
+    async function handleRegister(data: newAccountFormInput){
+
+        const { email, password, fullName, street, houseNumber, zipCode, city, federalUnit } = data
+
+        await registerAccount({
+            email,
+            password,
+            fullName,
+            street,
+            houseNumber,
+            zipCode,
+            city,
+            federalUnit,
+        })
         reset()
+        
+        navigate('/auth')
     }
+
 
     return(
         <>
