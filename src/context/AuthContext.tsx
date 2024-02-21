@@ -64,6 +64,7 @@ export function AuthProvider({children}: AuthProviderProps){
             try{
                 const response = await fetch('https://api-smorp.vercel.app/sessions', {
                     method: "POST",
+                    mode: 'cors',
                     headers: {
                         "Content-Type": "application/json"
                     },
