@@ -62,7 +62,7 @@ export function AuthProvider({children}: AuthProviderProps){
 
         if(searchAccount.data.account.length == 1){
             try{
-                const response = await fetch('http://localhost:3333/sessions', {
+                const response = await fetch('https://api-smorp.vercel.app/sessions', {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json"
