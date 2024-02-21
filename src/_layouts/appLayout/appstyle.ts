@@ -37,6 +37,7 @@ export const LogoWrapper = styled.div`
     display: flex;
     align-items: center;
     font-size: 2rem;
+    font-weight: bold;
    
     
     color: ${props => props.theme['blue']};

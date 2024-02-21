@@ -1,12 +1,15 @@
-import { Link, Outlet } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Header, LogoWrapper, ContentContainer, DropDownWrapper } from './appstyle'
 import { Bag } from "phosphor-react";
 
 import { Cart } from "./components/Cart/Cart";
 import { DropDown } from "./components/Dropdown/Dropdown";
+import { Home } from "../../pages/home";
 
 
 export function AppLayout(){
+
+
     return(
         <>
 
@@ -15,7 +18,7 @@ export function AppLayout(){
         <LogoWrapper>
         <span>S</span>
         <Bag size={28} weight="bold"/>
-        <span>orp!</span>
+        <span>ORP!</span>
         </LogoWrapper>
 
         <DropDownWrapper>
@@ -28,9 +31,10 @@ export function AppLayout(){
         </Header>
         
         <ContentContainer>
-        <Outlet/>
+        <Home/>
         </ContentContainer>
 
+       
 
         </>
     )
