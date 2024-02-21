@@ -1,18 +1,21 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AddressContainer, Container, Header, PaymentForm, RadioContainer } from "./style";
 import { Radio } from "./components/radio";
 import { z } from 'zod'
 import { useForm } from "react-hook-form";
 import { zodResolver } from '@hookform/resolvers/zod'
 import { priceFormatter } from "../../utils/priceFormatter";
+import { api } from "../../lib/axios";
+import { useContext } from "react";
+import { AuthContext } from "../../context/AuthContext";
 
 type formInputs = {
-    paymentMethod: 'credit' | 'debit' | 'pix'
+    paymentMethod: 'Credito' | 'Debito' | 'Pix'
 }
 
 
 const newOrder = z.object({
-    paymentMethod: z.enum(['credit', 'debit', 'pix'], {
+    paymentMethod: z.enum(['Credito', 'Debito', 'Pix'], {
         invalid_type_error: 'Informe um método de pagamento',
     })
 })
@@ -26,7 +29,9 @@ export function PaymentPage(){
     const totalCart = parseFloat(parsedValue)
     const deliveryTax = 25
     const sumStorage = parsedValue + deliveryTax
-    const parsedFinalValue = parseFloat(sumStorage)
+    const navigate = useNavigate()
+
+    const { info } = useContext(AuthContext)
   
     const {
         register,
@@ -39,9 +44,31 @@ export function PaymentPage(){
 
     const selectedPaymentMethod = watch('paymentMethod')
 
-    function testFunction(){
-        localStorage.setItem('paymentMethod', JSON.stringify(selectedPaymentMethod))
+    async function submitOrder(){
+        const unparsedEmail = localStorage.getItem('user') || ''
+        const email = JSON.parse(unparsedEmail)
+        const unparsedItems = localStorage.getItem('items') || ''
+        const items = JSON.parse(unparsedItems)
+
+        const paymentMethod = selectedPaymentMethod
+        const totalValue = JSON.stringify(sumStorage)
+        
+
+       await api.post(`/acc/${email.email}/orders`, {
+            email,
+            items,
+            paymentMethod,
+            totalValue,
+            deliveryTax,
+       })
+       
+       localStorage.removeItem('items')
+       localStorage.removeItem('totalValue')
+       localStorage.removeItem('paymentMethod')
+       navigate('/success')
+
     }
+
 
     return(
         <>
@@ -50,31 +77,42 @@ export function PaymentPage(){
             </Header>
         <Container>
         <div className="welcome">
-        <b>Nome</b>
+        <b>{info?.fullName}</b>
         <h1> Finalize sua compra</h1>
         </div>
             <AddressContainer>
                 <span>Endereço de entrega:</span>
-                <span>Rua, numero. Cep. Cidade - Estado</span>
-                <span>Previsão de entrega: 7 dias</span>
+                {
+                    info?.address.map((info) => {
+                        return (
+                            <>
+                            <span className="address">
+                            {info.street}, {info.houseNumber} - {info.zipCode} <br/> {info.city} - {info.federalUnit}
+                            </span>
+                           
+                            </>
+                        )
+                    })
+                }
+                <span className="address">Previsão de entrega: 5 dias</span>
             </AddressContainer>
-            <PaymentForm onSubmit={handleSubmit(testFunction)}>
+            <PaymentForm onSubmit={handleSubmit(submitOrder)}>
 
             <RadioContainer>
 
                 <div className="credit">
             <Radio
-                  isSelected={selectedPaymentMethod === 'credit'}
+                  isSelected={selectedPaymentMethod === 'Credito'}
                   {...register('paymentMethod')}
-                  value="credit"
+                  value="Credito"
                   />
                 <span>Cartão de crédito</span>
                   </div>
                   <div className="debit">
             <Radio
-                  isSelected={selectedPaymentMethod === 'debit'}
+                  isSelected={selectedPaymentMethod === 'Debito'}
                   {...register('paymentMethod')}
-                  value="debit"
+                  value="Debito"
                   />
                 <span>Cartão de Débito</span>
                 
@@ -82,9 +120,9 @@ export function PaymentPage(){
 
                   <div className="pix">
             <Radio
-                  isSelected={selectedPaymentMethod === 'pix'}
+                  isSelected={selectedPaymentMethod === 'Pix'}
                   {...register('paymentMethod')}
-                  value="pix"
+                  value="Pix"
                   />
                   <span>Pix</span>
                   </div>
@@ -97,7 +135,7 @@ export function PaymentPage(){
                     <span>Taxa de entrega:</span>
                 </div>
                 <div>
-                    <span>{priceFormatter.format(parsedFinalValue)}</span>
+                    <span>{priceFormatter.format(sumStorage)}</span>
                     <span>Total final:</span>
                 </div>
              

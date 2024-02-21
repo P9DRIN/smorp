@@ -11,6 +11,15 @@ export const Container = styled.label`
   transition: all 0.2s;
   border-radius: 9999px;
 
+    @media(min-width:426px) and (max-width: 767px){
+      width: 2rem;
+      height: 2rem;
+}
+    @media(min-width:768px){
+      width: 2.5rem;
+      height: 2.5rem;
+    }
+
 
   &:hover {
     background-color: ${props => props.theme['white']};
