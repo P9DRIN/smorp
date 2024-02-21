@@ -7,9 +7,9 @@ import { DataItems } from '../@types/product'
 
 export function Card({ data }: DataItems) {
 
-    const { cartItems } = useContext(ProductContext)
+    const { cartItems, fetchProductsCalled, setFetchProductsCalled } = useContext(ProductContext)
 
-    const { _id, productName, productImage, productPrice, productLDescription, productSDescription } = data
+    const { _id, productImage, productPrice  } = data
 
     const handleAddToCart = () => {
         const hasLocalStorage = localStorage.getItem('items')
@@ -24,7 +24,7 @@ export function Card({ data }: DataItems) {
             cartItems.push(data)
             localStorage.setItem('items', JSON.stringify(cartItems))
         }
-
+        setFetchProductsCalled(!fetchProductsCalled)
     }
 
     return(
