@@ -21,6 +21,7 @@ export const Container = styled.div`
 
 export const Header = styled.header`
     background: #111e29;
+    font-weight: bold;
     
     @media(max-width: 425px){
         display: flex;

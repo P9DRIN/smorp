@@ -6,7 +6,6 @@ import { useSum } from '../../hooks/useSum'
 import { priceFormatter } from '../../utils/priceFormatter'
 import { DropDown } from '../appLayout/components/Dropdown/Dropdown'
 import { ItemCard } from './components/ItemCard'
-
 import { Container, Header, Main, PriceWrapper, 
 BuyButton, Logo, NoCartItems } from './style'
 import { Bag, CreditCard, PlusCircle } from 'phosphor-react'
@@ -14,12 +13,12 @@ import { SecurityIcon } from './components/SecurityIcon'
 
 export function CartPage(){
 
-
     const sum = useSum()
 
     const navigate = useNavigate();
     const [showLockIcon, setShowLockIcon] = useState(false)
     const { cartItems } = useContext(ProductContext)
+
 
     function isDisabled(){
         const reason = cartItems.length
@@ -27,8 +26,8 @@ export function CartPage(){
         if(reason == 0 ) return true
     }
 
-    function handleCheckout(){
 
+    function handleCheckout(){
         const finalValue = (sum.totalValue)
         setShowLockIcon(!showLockIcon)
         localStorage.setItem('totalValue', JSON.stringify(finalValue))
@@ -36,7 +35,6 @@ export function CartPage(){
             navigate('/payment')
         }, 2000)
     }
-
 
     return(
         <>
@@ -46,7 +44,7 @@ export function CartPage(){
                     <Logo>
                     <span>S</span>
                     <Bag size={28} weight="bold"/>
-                    <span>orp!</span>
+                    <span>ORP!</span>
                     </Logo>
                     </Link>
                     <DropDown/>
@@ -75,7 +73,6 @@ export function CartPage(){
                     <BuyButton onClick={handleCheckout} disabled={isDisabled()}><CreditCard size={28}/></BuyButton>
                 <div>Total: <span>{priceFormatter.format(sum.totalValue)}</span></div>
                 </PriceWrapper>
-                
             </Container>
         </>
     )
