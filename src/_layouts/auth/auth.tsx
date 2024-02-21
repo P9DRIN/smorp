@@ -1,9 +1,11 @@
 import { Bag, SignIn } from "phosphor-react";
 import { CounterBG, Container, FormContainer, Wrapper, InputEmail, InputPassword, ButtonSubmit } from "./style";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import * as z from 'zod'
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useContext } from "react";
+import { AuthContext } from "../../context/AuthContext";
 
 
 const loginFormSchema = z.object({
@@ -15,23 +17,19 @@ type loginFormSchemaInputs = z.infer<typeof loginFormSchema>
 
 export function Auth(){
 
-    const navigate = useNavigate()
+    
+    const { loginAccount, handleError } = useContext(AuthContext)
 
     const { 
         register,
         handleSubmit,
         formState: { isSubmitting },
-        reset,
     } = useForm<loginFormSchemaInputs>({
         resolver: zodResolver(loginFormSchema)
     })
 
     function handleLogin(data: loginFormSchemaInputs){
-        console.log(data.email)
-        console.log(data.password)
-        reset()
-        navigate('/')
-
+        loginAccount(data)
     }
 
     return(
@@ -58,7 +56,15 @@ export function Auth(){
                     <SignIn size={28}/>
                 </ButtonSubmit>
                 </Wrapper>
-                <span>register <Link to="/register" className="link">here</Link></span>
+
+                {  
+                    handleError?
+                    <span>Email ou senha incorretos. Tente Novamente.</span>
+                    :
+                    <></>
+                }
+
+                <span>Registre-se <Link to="/register" className="link">aqui</Link></span>
             </FormContainer>
     </Container>
     </>
